@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinySteps - User Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateMobileNumber(mobile) {
+            const mobilePattern = /^[0-9]{10}$/; // Validates a 10-digit mobile number
+            return mobilePattern.test(mobile);
+        }
+
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const userId = document.getElementById('userId').value;
+            const mobileNumber = document.getElementById('mobileNumber').value;
+            const password = document.getElementById('password').value;
+
+            // Validate mobile number
+            if (!validateMobileNumber(mobileNumber)) {
+                alert('Please enter a valid 10-digit mobile number.');
+                return;
+            }
+
+            // Validate password based on User ID
+            const userPasswords = {
+                USER01: "P01",
+                USER02: "P02",
+                USER03: "P03",
+                USER04: "P04",
+                USER05: "P05"
+            };
+
+            if (userPasswords[userId] !== password) {
+                alert('Incorrect password. Please try again.');
+                return;
+            }
+
+            // Redirect to the corresponding link
+            let redirectUrl;
+            switch (userId) {
+                case 'USER01':
+                    redirectUrl = 'https://docs.google.com/spreadsheets/d/1KPSW6bMaPn6eLNkBYSntaTbemzdjO8hP_AB3DgsD6bQ/edit?resourcekey=&gid=331428146#gid=331428146';
+                    break;
+                case 'USER02':
+                    redirectUrl = 'https://docs.google.com/spreadsheets/d/1XrfgnaaIcf4cOX81rgrZP7_GXNiy4_YtmcO25Pwj7kw/edit?resourcekey=&gid=286763631#gid=286763631';
+                    break;
+                case 'USER03':
+                    redirectUrl = 'https://docs.google.com/spreadsheets/d/1L1hXTlimx1eLrbSCSFGhJMPWKuOeCmpt_ipgTeVk2KU/edit?resourcekey=&gid=1333707825#gid=1333707825';
+                    break;
+                case 'USER04':
+                    redirectUrl = 'https://docs.google.com/spreadsheets/d/1sSxqcRxE_hz6UHtBCDs1y2SUjFXvNSq4lQzw_2GakcM/edit?resourcekey=&gid=613574172#gid=613574172';
+                    break;
+                case 'USER05':
+                    redirectUrl = 'https://docs.google.com/spreadsheets/d/1yP6x5aS2sXc6-vYyr3yHLANdDZO9rh1BjlHqg8StGmg/edit?resourcekey=&gid=1907832873#gid=1907832873';
+                    break;
+                default:
+                    alert('Invalid User ID.');
+                    return;
+            }
+
+            window.location.href = redirectUrl;
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <img src="./images/logo3.png" alt="TinySteps" class="logo">
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./doctor-login.html">Doctor Login</a>
+                <a href="./patient-register.html">Patient Register</a>
+                <a href="./user-login.html">Patient Login</a>
+                <a href="./about-us.html">About</a>
+                <a href="./contact-us.html">Contact us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Login Section -->
+    <div class="login-section">
+        <h1>User Login</h1>
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <!-- Section 1: User ID -->
+            <label for="userId">User ID:</label>
+            <select id="userId" required>
+                <option value="">Select User ID</option>
+                <option value="USER01">USER01</option>
+                <option value="USER02">USER02</option>
+                <option value="USER03">USER03</option>
+                <option value="USER04">USER04</option>
+                <option value="USER05">USER05</option>
+            </select>
+
+            <!-- Section 2: Mobile Number -->
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" placeholder="Enter your 10-digit mobile number" required>
+
+            <!-- Section 3: Password -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="./patient-register.html">Register Here</a></p>
+    </div>
+
+</body>
+</html>

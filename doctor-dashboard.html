@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - TinySteps</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Embedded CSS */
+
+        /* Doctor Dashboard Section Styling */
+        .dashboard-section {
+            background-color: #fff;
+            padding: 50px;
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .dashboard-section h1 {
+            color: #432C7A;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .dashboard-btn {
+            background-color: #FF8FB1;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+        .dashboard-btn:hover {
+            background-color: #80489C;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <img src="./images/logo3.png" alt="TinySteps" class="logo">
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./doctor-login.html">Doctor Login</a>
+                <a href="./patient-register.html">Patient Register</a>
+                <a href="./user-login.html">Patient Login</a>
+                <a href="./about-us.html">About</a>
+                <a href="./contact-us.html">Contact us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Doctor Dashboard Section -->
+    <div class="dashboard-section">
+        <h1>Doctor Dashboard</h1>
+        <div class="button-container">
+            <button onclick="window.location.href='https://docs.google.com/spreadsheets/d/115w3Jq_KIgoYlL34fLfFnhhE10dKpTPkTz0r__eHf8c/edit?resourcekey=&gid=783236535#gid=783236535'" class="dashboard-btn">View Spreadsheet</button>
+            <button onclick="window.location.href='send-message.html'" class="dashboard-btn">Send Email</button>
+            <button onclick="window.location.href='patientdetails.html'" class="dashboard-btn">Patient Details</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinySteps - Doctor Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const fixedPassword = 'qwerty12345';
+
+            // Check if the password matches the fixed one
+            if (password === fixedPassword) {
+                alert('Login successful!');
+                window.location.href = 'doctor-dashboard.html'; // Redirect to the Doctor's Dashboard
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <img src="./images/logo3.png" alt="TinySteps" class="logo">
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./doctor-login.html">Doctor Login</a>
+                <a href="./patient-register.html">Patient Register</a>
+                <a href="./user-login.html">Patient Login</a>
+                <a href="./about-us.html">About</a>
+                <a href="./contact-us.html">Contact us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Doctor Login Section -->
+    <div class="login-section">
+        <h1>Doctor Login</h1>
+        <form class="login-form" onsubmit="validateLogin(event)">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>

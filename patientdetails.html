@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Details - TinySteps</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Patient Details Section Styling */
+        .patient-details-section {
+            background-color: #fff;
+            padding: 50px;
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .patient-details-section h1 {
+            color: #432C7A;
+            margin-bottom: 20px;
+        }
+        .patient-button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .patient-btn {
+            background-color: #FF8FB1;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .patient-btn:hover {
+            background-color: #80489C;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <img src="./images/logo3.png" alt="TinySteps" class="logo">
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./doctor-login.html">Doctor Login</a>
+                <a href="./patient-register.html">Patient Register</a>
+                <a href="./user-login.html">Patient Login</a>
+                <a href="./about-us.html">About</a>
+                <a href="./contact-us.html">Contact us</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Patient Details Section -->
+    <div class="patient-details-section">
+        <h1>Patient Details</h1>
+        <div class="patient-button-container">
+            <button onclick="window.location.href='patient1.html'" class="patient-btn">Patient 1</button>
+            <button onclick="window.location.href='patient2.html'" class="patient-btn">Patient 2</button>
+            <button onclick="window.location.href='patient3.html'" class="patient-btn">Patient 3</button>
+            <button onclick="window.location.href='patient4.html'" class="patient-btn">Patient 4</button>
+            <button onclick="window.location.href='patient5.html'" class="patient-btn">Patient 5</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #432c7a;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #80489c;
+        }
+
+        #status {
+            margin-top: 1rem;
+            color: #333;
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "WQ95CTm-7aRaZIoYu",
+          });
+       })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Send Remainder of Upcoming Doses</h1>
+        <form id="contact-form" onsubmit="sendEmail(event)">
+            <label for="name">Sender's Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Sender's Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="status"></div>
+    </div>
+    <script>
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            const status = document.getElementById("status");
+            status.textContent = "Sending...";
+
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Prepare template parameters
+            const templateParams = {
+                from_name: name,           // User's name
+                from_email: email,         // User's email address
+                message: message,          // Message content
+                to_email: "your_email@example.com" // The recipient's email address
+            };
+
+            // Send email using EmailJS
+            emailjs.send("service_c8pt0rw", "template_336oxdr", templateParams)
+                .then(response => {
+                    console.log("Email sent successfully!", response.status, response.text);
+                    status.textContent = "Message sent successfully!";
+                    status.style.color = "green";
+                    document.getElementById("contact-form").reset(); // Reset form fields
+                })
+                .catch(error => {
+                    console.error("Failed to send email:", error);
+                    status.textContent = "Failed to send message. Please try again.";
+                    status.style.color = "red";
+                });
+        }
+    </script>
+</body>
+</html>

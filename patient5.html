@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient 5 - TinySteps</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .patient-page {
+            background-color: #fff;
+            padding: 50px;
+            max-width: 500px;
+            margin: 40px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .patient-page h1 {
+            color: #432C7A;
+            margin-bottom: 20px;
+        }
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .option-btn {
+            background-color: #FF8FB1;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .option-btn:hover {
+            background-color: #80489C;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <img src="./images/logo3.png" alt="TinySteps" class="logo">
+            <div class="nav-links">
+                <a href="./index.html">Home</a>
+                <a href="./doctor-login.html">Doctor Login</a>
+                <a href="./patient-register.html">Patient Register</a>
+                <a href="./user-login.html">Patient Login</a>
+                <a href="./about-us.html">About</a>
+                <a href="./contact-us.html">Contact us</a>
+            </div>
+        </div>
+    </nav>
+    <div class="patient-page">
+        <h1>Patient 5</h1>
+        <div class="options-container">
+            <button class="option-btn" onclick="alert('Patient already registered')">New Patient</button>
+            <button class="option-btn" onclick="window.location.href='https://forms.gle/nnyvzYysYitCdf348'">Edit Existing Report</button>
+        </div>
+    </div>
+
+</body>
+</html>
